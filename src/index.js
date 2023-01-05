@@ -1,13 +1,36 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
+import Home from "./routes/home/home.component";
+import Navigation from "./routes/navigation/navigation.component";
+
+const Shop = () => {
+  return <h1>I am the shop page</h1>;
+};
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigation />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/shop",
+        element: <Shop />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
