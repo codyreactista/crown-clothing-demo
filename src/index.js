@@ -2,18 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import { CartProvider } from "./contexts/cart.context";
+import { ProductsProvider } from "./contexts/products.context";
 import { UserProvider } from "./contexts/user.context";
+
 import Authentication from "./routes/authentication/authentication.component";
+import Checkout from "./routes/checkout/checkout.component";
 import Home from "./routes/home/home.component";
 import Navigation from "./routes/navigation/navigation.component";
+import Shop from "./routes/shop/shop.component";
 
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.scss";
-
-const Shop = () => {
-  return <h1>I am the shop page</h1>;
-};
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path: "/auth",
         element: <Authentication />,
       },
+      {
+        path: "/checkout",
+        element: <Checkout />,
+      },
     ],
   },
 ]);
@@ -40,7 +45,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <RouterProvider router={router} />
+      <ProductsProvider>
+        <CartProvider>
+          <RouterProvider router={router} />
+        </CartProvider>
+      </ProductsProvider>
     </UserProvider>
   </React.StrictMode>
 );
