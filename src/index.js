@@ -3,14 +3,15 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { CartProvider } from "./contexts/cart.context";
-import { ProductsProvider } from "./contexts/products.context";
+import { CategoriesProvider } from "./contexts/categories.context";
 import { UserProvider } from "./contexts/user.context";
 
 import Authentication from "./routes/authentication/authentication.component";
+import CategoriesPreview from "./routes/categories-preview/categories-preview.component";
+import Category from "./routes/category/category.component";
 import Checkout from "./routes/checkout/checkout.component";
 import Home from "./routes/home/home.component";
 import Navigation from "./routes/navigation/navigation.component";
-import Shop from "./routes/shop/shop.component";
 
 import reportWebVitals from "./reportWebVitals";
 
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/shop",
-        element: <Shop />,
+        element: <CategoriesPreview />,
+      },
+      {
+        path: "/shop/:shopId",
+        element: <Category />,
       },
       {
         path: "/auth",
@@ -43,15 +48,13 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <UserProvider>
-      <ProductsProvider>
-        <CartProvider>
-          <RouterProvider router={router} />
-        </CartProvider>
-      </ProductsProvider>
-    </UserProvider>
-  </React.StrictMode>
+  <UserProvider>
+    <CategoriesProvider>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
+    </CategoriesProvider>
+  </UserProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
