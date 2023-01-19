@@ -15,7 +15,7 @@ import Navigation from "./routes/navigation/navigation.component";
 
 import reportWebVitals from "./reportWebVitals";
 
-import "./index.scss";
+import "./index.css";
 
 const router = createBrowserRouter([
   {

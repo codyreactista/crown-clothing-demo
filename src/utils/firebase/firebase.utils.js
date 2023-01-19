@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signOut
+  signOut,
 } from "firebase/auth";
 import {
   collection,
@@ -16,7 +16,7 @@ import {
   getFirestore,
   query,
   setDoc,
-  writeBatch
+  writeBatch,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -55,11 +55,10 @@ export const addCollectionAndDocuments = async (
   });
 
   await batch.commit();
-  console.log("done");
 };
 
 export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'categories');
+  const collectionRef = collection(db, "categories");
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
