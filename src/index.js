@@ -1,3 +1,4 @@
+import { Elements } from "@stripe/react-stripe-js";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
@@ -7,6 +8,8 @@ import { persistor, store } from "./store/store";
 
 import App from "./App";
 
+import { stripePromise } from "./utils/stripe/stripe.utils";
+
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
@@ -15,7 +18,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <PersistGate loading={null} persistor={persistor}>
     <Provider store={store}>
-      <App />
+      <Elements stripe={stripePromise}>
+        <App />
+      </Elements>
     </Provider>
   </PersistGate>
 );
