@@ -9,7 +9,8 @@ const Shop = () => {
 
   useEffect(() => {
     dispatch(fetchCategoriesStart());
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return <Outlet />;
 };

@@ -1,16 +1,24 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { checkUserSession } from "./store/user/user.action";
 
-import Authentication from "./routes/authentication/authentication.component";
-import CategoriesPreview from "./routes/categories-preview/categories-preview.component";
-import Category from "./routes/category/category.component";
-import Checkout from "./routes/checkout/checkout.component";
-import Home from "./routes/home/home.component";
-import Navigation from "./routes/navigation/navigation.component";
-import Shop from "./routes/shop/shop.component";
+import Spinner from "./components/spinner/spinner.component";
+
+const Shop = lazy(() => import("./routes/shop/shop.component"));
+const CategoriesPreview = lazy(() =>
+  import("./routes/categories-preview/categories-preview.component")
+);
+const Category = lazy(() => import("./routes/category/category.component"));
+const Checkout = lazy(() => import("./routes/checkout/checkout.component"));
+const Navigation = lazy(() =>
+  import("./routes/navigation/navigation.component")
+);
+const Home = lazy(() => import("./routes/home/home.component"));
+const Authentication = lazy(() =>
+  import("./routes/authentication/authentication.component")
+);
 
 const router = createBrowserRouter([
   {
@@ -52,9 +60,14 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkUserSession());
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={<Spinner />}>
+      <RouterProvider router={router} />;
+    </Suspense>
+  );
 };
 
 export default App;
