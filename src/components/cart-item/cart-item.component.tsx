@@ -1,11 +1,14 @@
+import { FC } from "react";
+
+import { CartItem as TCartItem } from "../../store/cart/cart.types";
+
 import { CartItemContainer, ItemDetails } from "./cart-item.styles";
 
-export const BUTTON_TYPE_CLASSES = {
-  google: "google-sign-in",
-  inverted: "inverted",
+type CartItemProps = {
+  cartItem: TCartItem;
 };
 
-const CartItem = ({ cartItem }) => {
+const CartItem: FC<CartItemProps> = ({ cartItem }) => {
   const { imageUrl, price, name, quantity } = cartItem;
 
   return (
