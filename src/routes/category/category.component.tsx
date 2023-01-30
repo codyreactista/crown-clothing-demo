@@ -12,8 +12,12 @@ import Spinner from "../../components/spinner/spinner.component";
 
 import { CategoryContainer, Title } from "./category.styles";
 
+type ShopRouteParams = {
+  shopId: string;
+};
+
 const Category = () => {
-  const { shopId } = useParams();
+  const { shopId } = useParams<keyof ShopRouteParams>() as ShopRouteParams;
   // console.log("render/re-rendering category component");
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
