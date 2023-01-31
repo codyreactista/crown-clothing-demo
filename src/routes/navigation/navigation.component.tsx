@@ -5,7 +5,7 @@ import { selectIsCartOpen } from "../../store/cart/cart.selector";
 import { signOutStart } from "../../store/user/user.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
-import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
+import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 
@@ -27,7 +27,7 @@ const Navigation = () => {
     <>
       <NavigationContainer>
         <LogoContainer to="/">
-          <CrwnLogo className="logo" />
+          <CrownLogo className="logo" />
         </LogoContainer>
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
