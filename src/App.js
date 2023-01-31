@@ -6,6 +6,8 @@ import { checkUserSession } from "./store/user/user.action";
 
 import Spinner from "./components/spinner/spinner.component";
 
+import { GlobalStyle } from "./global.styles";
+
 const Shop = lazy(() => import("./routes/shop/shop.component"));
 const CategoriesPreview = lazy(() =>
   import("./routes/categories-preview/categories-preview.component")
@@ -65,7 +67,8 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
-      <RouterProvider router={router} />;
+      <GlobalStyle />
+      <RouterProvider router={router} />
     </Suspense>
   );
 };

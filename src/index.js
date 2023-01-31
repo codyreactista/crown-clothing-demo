@@ -11,8 +11,6 @@ import getStripe from "./utils/stripe/stripe.utils";
 
 import reportWebVitals from "./reportWebVitals";
 
-import "./index.css";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <PersistGate loading={null} persistor={persistor}>
