@@ -1,8 +1,14 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2022-11-15",
+});
 
-export default async function createPaymentIntent(req, res) {
+export default async function createPaymentIntent(
+  req: VercelRequest,
+  res: VercelResponse
+) {
   try {
     const { amount } = req.body;
 

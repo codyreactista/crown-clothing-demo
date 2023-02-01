@@ -1,8 +1,8 @@
-import { User } from "firebase/auth";
+import type { User } from "firebase/auth";
 
 import { USER_ACTION_TYPES } from "./user.types";
 
-import {
+import type {
   AdditionalInformation,
   UserData,
 } from "../../utils/firebase/firebase.utils";

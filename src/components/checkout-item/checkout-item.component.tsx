@@ -7,7 +7,7 @@ import {
   removeItemFromCart,
 } from "../../store/cart/cart.action";
 import { selectCartItems } from "../../store/cart/cart.selector";
-import { CartItem } from "../../store/cart/cart.types";
+import type { CartItem } from "../../store/cart/cart.types";
 
 import {
   Arrow,

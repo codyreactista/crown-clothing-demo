@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { StripeCardElement } from "@stripe/stripe-js";
+import type { StripeCardElement } from "@stripe/stripe-js";
 import { FormEvent, useState } from "react";
 import { useSelector } from "react-redux";
 

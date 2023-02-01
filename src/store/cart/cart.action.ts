@@ -1,4 +1,4 @@
-import { CategoryItem } from "../categories/categories.types";
+import type { CategoryItem } from "../categories/categories.types";
 import { CartItem, CART_ACTION_TYPES } from "./cart.types";
 
 import {

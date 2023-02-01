@@ -1,9 +1,9 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { addItemToCart } from "../../store/cart/cart.action";
 import { selectCartItems } from "../../store/cart/cart.selector";
-import { CategoryItem } from "../../store/categories/categories.types";
+import type { CategoryItem } from "../../store/categories/categories.types";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 

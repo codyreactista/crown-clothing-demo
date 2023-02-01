@@ -1,4 +1,4 @@
-import { AnyAction } from "redux";
+import type { AnyAction } from "redux";
 
 type Matchable<AC extends () => AnyAction> = AC & {
   type: ReturnType<AC>["type"];
