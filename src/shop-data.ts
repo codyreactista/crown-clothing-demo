@@ -1,4 +1,16 @@
-const SHOP_DATA = [
+type Product = {
+  id: number;
+  name: string;
+  imageUrl: string;
+  price: number;
+};
+
+type Category = {
+  title: string;
+  items: Product[];
+};
+
+const SHOP_DATA: Category[] = [
   {
     title: "Hats",
     items: [
