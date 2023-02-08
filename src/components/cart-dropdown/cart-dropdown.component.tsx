@@ -19,8 +19,7 @@ const CartDropdown = () => {
 
   const goToCheckoutHandler = useCallback(() => {
     navigate("/checkout");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <CartDropdownContainer>

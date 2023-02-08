@@ -9,17 +9,17 @@ import Spinner from "./components/spinner/spinner.component";
 import { GlobalStyle } from "./global.styles";
 
 const Shop = lazy(() => import("./routes/shop/shop.component"));
-const CategoriesPreview = lazy(() =>
-  import("./routes/categories-preview/categories-preview.component")
+const CategoriesPreview = lazy(
+  () => import("./routes/categories-preview/categories-preview.component")
 );
 const Category = lazy(() => import("./routes/category/category.component"));
 const Checkout = lazy(() => import("./routes/checkout/checkout.component"));
-const Navigation = lazy(() =>
-  import("./routes/navigation/navigation.component")
+const Navigation = lazy(
+  () => import("./routes/navigation/navigation.component")
 );
 const Home = lazy(() => import("./routes/home/home.component"));
-const Authentication = lazy(() =>
-  import("./routes/authentication/authentication.component")
+const Authentication = lazy(
+  () => import("./routes/authentication/authentication.component")
 );
 
 const router = createBrowserRouter([
@@ -62,8 +62,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkUserSession());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Suspense fallback={<Spinner />}>
